@@ -1,0 +1,35 @@
+<ion-view view-title="Home">
+    <ion-content class="padding">
+
+    <div class="list card" ng-repeat="content in contents">
+		  <div class="item item-avatar">
+		    <img src="mcfly.jpg">
+		    <h2>{{content.sd}}</h2>
+
+		    <p></p>
+		  </div>
+
+		  <div class="item item-body">
+		    <p>
+		      {{content.ld}}
+		    </p>
+		  </div>
+
+		  <div class="item tabs tabs-secondary tabs-icon-left">
+		    <a class="tab-item" href="#">
+		      <i class="icon ion-location"></i>
+		      visit
+		    </a>
+		    <a class="tab-item" href="#">
+		      <i class="icon ion-chatbox"></i>
+		      Comment
+		    </a>
+		    <a class="tab-item" href="#">
+		      <i class="icon ion-share"></i>
+		      Share
+		    </a>
+		  </div>
+
+	</div>
+    </ion-content>
+</ion-view>
