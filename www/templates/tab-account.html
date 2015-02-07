@@ -1,15 +1,126 @@
-<ion-view view-title="Account">
+<ion-view view-title="Fill Offer">
   <ion-content>
-    <ion-list>
-      <ion-item class="item-toggle">
-        Enable Friends
-        <label class="toggle">
-          <input type="checkbox" ng-model="settings.enableFriends">
-          <div class="track">
-            <div class="handle"></div>
-          </div>
-        </label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+        <div class="list">
+   <form method="post" action="http://192.168.160.1/grabit/postDetails.php" enctype="multipart/form-data">
+          <label class="item item-input">
+            <input type="text" placeholder="Shop Name" name="shop" id="shop" required="required">
+          </label>
+
+     <label class="item item-input">
+       <input type="file" placeholder="Offer pic" name="image" id="image" required="required">
+     </label>
+
+          <label class="item item-input">
+            <input type="text" placeholder="Contact No" name="contact" id="contact" required>
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Address" name="addr" id="addr" required>
+          </label>
+          <label class="item item-input">
+            <textarea placeholder="Short Description" name="short" id="short" required></textarea>
+          </label>
+
+          <label class="item item-input">
+            <textarea placeholder="Long Description" name="longdesc" id="longdesc" required></textarea>
+          </label>
+
+          <label class="item item-input">
+            <input type="text" placeholder="Offer Category" name="cat" id="cat" required>
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Offer Item"  name="oitem"  id="oitem" required>
+          </label>
+
+          <label class="item item-input">
+            <input type="date" placeholder="Offer Expiry Date" name="edate" id="edate" required>
+          </label>
+          <input type="submit" value="Submit Offer" class="button button-positive" id="sub"/>
+       <input type="hidden" placeholder="Offer Expiry Date" name="lat" id="lat" ng-bind="lat" required>
+       <input type="hidden" placeholder="Offer Expiry Date" name="long" id="long" ng-bind="lang" required>
+
+     </form>
+        </div>
+      <div id="geo"></div>
+      <button id="geoget">GEO</button>
+   </ion-content>
 </ion-view>
+<script>
+/*  $('#sub').click(function(){
+   var shop=$('#shop').val();
+    var contact=$('#contact').val();
+    var addr=$('#addr').val();
+    var short=$('#short').val();
+    var longdesc=$('#longdesc').val();
+    var cat=$('#cat').val();
+    var oitem=$('#oitem').val();
+    var edate=$('#edate').val();
+    var lat="lat";
+    var long="long";
+    var file=$('#image').val();
+//    alert(contact);
+    if(shop!=""&&contact!=""&&addr!=""&&short!=""&&longdesc!=""&&cat!=""&&oitem!=""&& edate!=""&& lat!=""&& long!="") {
+      $.post("http://localhost/grabit/postDetails.php", {
+        shop: shop,
+        contact: contact,
+        addr: addr,
+        short: short,
+        longdesc: longdesc,
+        cat: cat,
+        oitem: oitem,
+        edate: edate,
+        lat: lat,
+        long: long,
+        file:file
+      }, function (data, status) {
+        console.log(data);
+        if (data == "success") {
+          alert("Success !");
+        }
+      });
+    }
+    else
+    alert("Pls enter all the details");
+  });*/
+/*var onSuccessGeo = function(position) {
+    $("#geo").html('Latitude: '          + position.coords.latitude          + '<br>' +
+    'Longitude: '         + position.coords.longitude         + '<br>' +
+    'Altitude: '          + position.coords.altitude          + '<br>' +
+    'Accuracy: '          + position.coords.accuracy          + '<br>' +
+    'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '<br>' +
+    'Heading: '           + position.coords.heading           + '<br>' +
+    'Speed: '             + position.coords.speed             + '<br>' +
+    'Timestamp: '         + position.timestamp                + '<br>');
+};
+function onErrorGeo(error) {
+    $("#geo").html('code: '    + error.code    + '<br>' +
+    'message: ' + error.message + '<br>');
+}
+function Geolocal(){
+    console.log("in");
+    navigator.geolocation.getCurrentPosition(onSuccessGeo, onErrorGeo);
+}
+    $("#getgeo").click(function(){
+        Geolocal();
+    })
+
+
+var onSuccess = function(position) {
+/*    alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+};
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+navigator.geolocation.getCurrentPosition(onSuccess, onError);*/
+  </script>

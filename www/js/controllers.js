@@ -21,21 +21,27 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('homeController',function($scope,$timeout, $stateParams,$ionicPlatform, getService) {
-      
+.controller('homeController',function($scope,$rootScope,$timeout, $stateParams,$ionicPlatform, getService) {
+
       (function tick() {
 
-          getService.getDetails().success(function(response){       
+          navigator.geolocation.getCurrentPosition(function(position){
+              $rootScope.lat=position.coords.latitude;
+              $rootScope.lang=position.coords.longitude;
+              console.log($rootScope.lat+"-"+$rootScope.lang);
+          }, function(){});
+
+          getService.getDetails($rootScope.lat,$rootScope.long).success(function(response){
           $scope.contents=response;
-        
+          console.log(response);
           for (var i = response.length - 1; i >= 0; i--) {
            window.plugin.notification.local.add({id:response[i].sd,message: response[i].sd, led: 'A0FF05'});
             //$rootScope.max.push(response[i]);
-            console.log(i+" "+response[i].sd);
+           console.log(i+" "+response[i].sd);
           };
         });
-
         $timeout(tick, 20000);
+
 
     })();
 
@@ -45,4 +51,5 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+  $scope.preferences=['Home','Food','Hotels'];
 });

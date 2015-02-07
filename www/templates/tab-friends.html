@@ -1,9 +1,14 @@
-<ion-view view-title="Friends">
-  <ion-content>
+<ion-view view-title="Set your Preferences">
+    <ion-content>
     <ion-list>
-      <ion-item class="item-avatar" ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
-        <img ng-src="{{friend.face}}">
-        <h2>{{friend.name}}</h2>
+      <ion-item class="item-toggle">
+        Enable Friends
+        <label class="toggle">
+          <input type="checkbox" ng-model="settings.enableFriends">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
       </ion-item>
     </ion-list>
   </ion-content>
